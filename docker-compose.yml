@@ -1,0 +1,20 @@
+services:
+  tools-challenge-db:
+    image: gvenzl/oracle-free:23-slim
+    container_name: tools-challenge-db
+
+    ports:
+      - "1521:1521"
+
+    environment:
+      ORACLE_PASSWORD: oracle
+      APP_USER: app
+      APP_USER_PASSWORD: app
+
+    volumes:
+      - oracle-data:/opt/oracle/oradata
+
+    restart: unless-stopped
+
+volumes:
+  oracle-data:
