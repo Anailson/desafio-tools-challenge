@@ -1,10 +1,10 @@
-package com.anailson.infrastructure.persistence.repository;
+package com.anailson.tools_challenge.infrastructure.persistence.repository;
 
 
-import com.anailson.adapters.repository.PagamentoRepository;
-import com.anailson.domain.model.Pagamento;
-import com.anailson.infrastructure.persistence.entity.PagamentoEntity;
-import com.anailson.infrastructure.persistence.mapper.PagamentoMapper;
+import com.anailson.tools_challenge.adapters.repository.PagamentoRepository;
+import com.anailson.tools_challenge.domain.model.Pagamento;
+import com.anailson.tools_challenge.infrastructure.persistence.entity.PagamentoEntity;
+import com.anailson.tools_challenge.infrastructure.persistence.mapper.PagamentoMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 

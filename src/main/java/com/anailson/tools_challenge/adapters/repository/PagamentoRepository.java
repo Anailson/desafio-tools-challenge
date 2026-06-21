@@ -1,6 +1,6 @@
-package com.anailson.adapters.repository;
+package com.anailson.tools_challenge.adapters.repository;
 
-import com.anailson.domain.model.Pagamento;
+import com.anailson.tools_challenge.domain.model.Pagamento;
 
 import java.util.List;
 import java.util.Optional;

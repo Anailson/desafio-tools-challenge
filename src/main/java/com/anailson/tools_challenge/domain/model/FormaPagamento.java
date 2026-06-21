@@ -1,6 +1,6 @@
-package com.anailson.domain.model;
+package com.anailson.tools_challenge.domain.model;
 
-import com.anailson.domain.enums.TipoPagamento;
+import com.anailson.tools_challenge.domain.enums.TipoPagamento;
 import lombok.*;
 
 @Builder

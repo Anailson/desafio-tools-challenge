@@ -1,4 +1,4 @@
-package com.anailson.domain.model;
+package com.anailson.tools_challenge.domain.model;
 
 
 import lombok.*;

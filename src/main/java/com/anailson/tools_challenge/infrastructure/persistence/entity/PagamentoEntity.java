@@ -1,8 +1,8 @@
-package com.anailson.infrastructure.persistence.entity;
+package com.anailson.tools_challenge.infrastructure.persistence.entity;
 
 
-import com.anailson.domain.enums.StatusTransacao;
-import com.anailson.domain.enums.TipoPagamento;
+import com.anailson.tools_challenge.domain.enums.StatusTransacao;
+import com.anailson.tools_challenge.domain.enums.TipoPagamento;
 import jakarta.persistence.*;
 import lombok.*;
 
