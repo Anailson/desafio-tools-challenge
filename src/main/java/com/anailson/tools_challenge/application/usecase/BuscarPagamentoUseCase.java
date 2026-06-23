@@ -13,7 +13,7 @@ public class BuscarPagamentoUseCase {
 
     private final PagamentoRepository pagamentoRepository;
 
-    public Pagamento buscarPOrId(Long id){
+    public Pagamento buscarPOrId(String id){
         return pagamentoRepository.buscarPorId(id)
                 .orElseThrow(() -> new IllegalArgumentException("Transação não encontrada"));
     }

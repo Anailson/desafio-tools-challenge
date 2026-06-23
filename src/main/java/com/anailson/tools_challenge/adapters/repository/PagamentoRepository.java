@@ -9,9 +9,11 @@ public interface PagamentoRepository {
 
     Pagamento salvar(Pagamento pagamento);
 
-    Optional<Pagamento> buscarPorId(Long id);
+    Optional<Pagamento> buscarPorId(String idTransacao);
 
     List<Pagamento> buscarTodos();
+
+    Pagamento atualizar(Pagamento pagamento);
 
 
 }

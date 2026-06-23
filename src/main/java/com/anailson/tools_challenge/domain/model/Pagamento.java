@@ -10,6 +10,8 @@ import lombok.*;
 @AllArgsConstructor
 public class Pagamento {
 
+    private Long id;
+
     private Transacao transacao;;
 
     private FormaPagamento formaPagamento;

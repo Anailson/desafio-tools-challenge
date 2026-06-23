@@ -2,6 +2,7 @@ package com.anailson.tools_challenge.adapters.controller;
 
 
 import com.anailson.tools_challenge.application.usecase.BuscarPagamentoUseCase;
+import com.anailson.tools_challenge.application.usecase.EstornarPagamentoUseCase;
 import com.anailson.tools_challenge.application.usecase.RealizarPagamentoUseCase;
 import com.anailson.tools_challenge.domain.model.Pagamento;
 import lombok.RequiredArgsConstructor;
@@ -19,6 +20,7 @@ public class PagamentoController {
 
     private final RealizarPagamentoUseCase realizarPagamentoUseCase;
     private final BuscarPagamentoUseCase buscarPagamentoUseCase;
+    private final EstornarPagamentoUseCase estornarPagamentoUseCase;
 
 
     @PostMapping
@@ -37,9 +39,13 @@ public class PagamentoController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Pagamento> buscarPOrId(@PathVariable Long id) {
+    public ResponseEntity<Pagamento> buscarPOrId(@PathVariable String id) {
         return ResponseEntity.ok(buscarPagamentoUseCase.buscarPOrId(id));
     }
 
+    @PutMapping("/{id}/estorno")
+    public ResponseEntity<Pagamento> estornar(@PathVariable String id){
+        return ResponseEntity.ok(estornarPagamentoUseCase.executar(id));
+    }
 
 }

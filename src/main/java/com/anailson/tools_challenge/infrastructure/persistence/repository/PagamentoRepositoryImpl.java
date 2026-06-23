@@ -30,9 +30,9 @@ public class PagamentoRepositoryImpl implements PagamentoRepository {
     }
 
     @Override
-    public Optional<Pagamento> buscarPorId(Long id) {
+    public Optional<Pagamento> buscarPorId(String idTransacao) {
 
-        return jpaRepository.findById(id)
+        return jpaRepository.findByIdTransacao(idTransacao)
                 .map(pagamentoMapper::toDomain);
     }
 
@@ -43,5 +43,19 @@ public class PagamentoRepositoryImpl implements PagamentoRepository {
                 .stream()
                 .map(pagamentoMapper::toDomain)
                 .toList();
+    }
+
+    @Override
+    public Pagamento atualizar(Pagamento pagamento) {
+
+        PagamentoEntity entity = jpaRepository
+                .findByIdTransacao(pagamento.getTransacao().getId())
+                .orElseThrow(() -> new IllegalArgumentException("Transação não encontrada"));
+
+        entity.setStatus(pagamento.getTransacao().getStatus());
+
+        PagamentoEntity atualizado = jpaRepository.save(entity);
+
+        return pagamentoMapper.toDomain(atualizado);
     }
 }
