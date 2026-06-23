@@ -9,6 +9,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 
 @RestController
 @RequestMapping("/pagamentos")
@@ -18,6 +20,7 @@ public class PagamentoController {
     private final RealizarPagamentoUseCase realizarPagamentoUseCase;
     private final BuscarPagamentoUseCase buscarPagamentoUseCase;
 
+
     @PostMapping
     public ResponseEntity<Pagamento> realizarPagamento(@RequestBody Pagamento pagamento) {
         Pagamento pagamentoRealizado = realizarPagamentoUseCase.executar(pagamento);
@@ -26,4 +29,17 @@ public class PagamentoController {
                 .status(HttpStatus.CREATED)
                 .body(pagamentoRealizado);
     }
+
+    @GetMapping
+    public List<Pagamento> buscarTodos() {
+        return ResponseEntity.ok(buscarPagamentoUseCase.buscarTodos()).getBody();
+
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Pagamento> buscarPOrId(@PathVariable Long id) {
+        return ResponseEntity.ok(buscarPagamentoUseCase.buscarPOrId(id));
+    }
+
+
 }
