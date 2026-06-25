@@ -12,6 +12,7 @@ public class PagamentoMapper {
 
     public PagamentoEntity toEntity(Pagamento pagamento) {
         return PagamentoEntity.builder()
+                .id(pagamento.getId())
                 .idTransacao(pagamento.getTransacao().getId())
                 .cartao(pagamento.getTransacao().getCartao())
                 .valor(pagamento.getTransacao().getDescricao().getValor())
@@ -28,6 +29,7 @@ public class PagamentoMapper {
     public Pagamento toDomain(PagamentoEntity entity) {
 
         return Pagamento.builder()
+                .id((entity.getId()))
                 .transacao(
                         Transacao.builder()
                                 .id(entity.getIdTransacao())
